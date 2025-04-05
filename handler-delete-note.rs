@@ -20,7 +20,7 @@ pub async fn delete_note_handler(
     if query_result.rows_affected() == 0 {
         let error_response = serde_json::json!({
             "status": "error",
-            "message": format!("Note with ID: {} not found", id)
+            "message": format!("La nota con el ID: {} no encontrado", id)
         });
         return Err((StatusCode::NOT_FOUND, Json(error_response)));
     }
