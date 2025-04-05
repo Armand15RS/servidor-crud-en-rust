@@ -26,7 +26,7 @@ pub async fn get_note_handler(
         Err(sqlx::Error::RowNotFound) => {
             let error_response = serde_json::json!({
                 "status": "fail",
-                "message": format!("Note with ID: {} not found", id)
+                "message": format!("La nota con el ID: {} no encontrado", id)
             });
             return Err((StatusCode::NOT_FOUND, Json(error_response)));
         }
