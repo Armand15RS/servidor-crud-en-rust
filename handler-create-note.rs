@@ -14,10 +14,10 @@ pub async fn create_note_handler(
 
     
     if let Err(err) = query_result {
-        if err.contains("Duplicate entry") {
+        if err.contains("Entrada duplicada") {
             let error_response = serde_json::json!({
                 "status": "error",
-                "message": "Note already exists",
+                "message": "La nota ya existe",
             });
             return Err((StatusCode::CONFLICT, Json(error_response)));
         }
